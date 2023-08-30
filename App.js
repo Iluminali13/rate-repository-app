@@ -30,6 +30,7 @@ const App =() => {
 
 const styles = StyleSheet.create({
   text1: {
+    justifyContent:'center',
     alignContent: 'center',
     alignItems:'center',
     margin: 15,
