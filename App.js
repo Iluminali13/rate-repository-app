@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Prueba from "./Prueba";
 import recuperarContrasenia from "./recuperarContrasenia";
+import NuevoTurno from "./NuevoTurno";
 
 
 
@@ -26,7 +27,7 @@ const App =() => {
         component={Registro} />
 
         <Stack.Screen 
-        name="recuperarContrasenia" 
+        name="recuperarClave" 
         component={recuperarContrasenia} />
 
         <Stack.Screen 
@@ -36,6 +37,11 @@ const App =() => {
         <Stack.Screen 
         name="Prueba" 
         component={Prueba} />
+
+
+        <Stack.Screen 
+        name="NuevoTurno" 
+        component={NuevoTurno} />
 
       </Stack.Navigator>
     </NavigationContainer>

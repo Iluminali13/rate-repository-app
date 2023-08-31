@@ -19,7 +19,7 @@ const Login =({navigation}) => {
             <View style={[styles.box, styles.box2]}>
                 
                 <TouchableOpacity style={styles.button}
-                onPress={() => navigation.navigate('Prueba')}>
+                onPress={() => navigation.navigate('NuevoTurno')}>
                     <View>
                         <Text style={styles.text_button}>Nuevo Turno</Text>
                     </View>

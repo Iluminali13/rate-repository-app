@@ -35,7 +35,7 @@ const IniciarSesion =({navigation}) => {
                 <Text style={styles.TextClave} 
                 
                 onPress={() =>{
-                    navigation.navigate('recuperarContrasenia')
+                    navigation.navigate('recuperarClave')
                 }}> Recuperar clave</Text>
 
                 
