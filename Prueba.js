@@ -6,7 +6,7 @@ var box_count = 3;
 var box_height = height / box_count;
 
 
-const Registro =({navigation}) => {
+const Prueba =({navigation}) => {
    
     return(
         <View style={styles.container}>
@@ -145,6 +145,65 @@ const styles = StyleSheet.create({
         fontSize:15,
 
     },
+    
   }); 
 
-export default Registro;
+   /* return (
+        <View  style={styles.view}>
+            <Text style={{fontSize: 30,}}> Turnos</Text>
+            <View style={styles.view1}>
+    
+                <Button style={styles.button}
+                title="Nuevo Turno"
+                onPress={() => navigation.navigate('Registro')}
+                />
+                <Button style={styles.button}
+                title="Mis Turnos"
+                onPress={() => navigation.navigate('Prueba')}
+                />
+            </View>
+        </View>
+    )
+
+
+}
+
+const styles = StyleSheet.create({
+
+    view1:{
+        
+        marginLeft:10,
+        marginRight:10,
+        flex:1,
+        justifyContent: 'center',
+        
+
+    },
+    view:{
+        
+        marginLeft:20,
+        marginRight:20,
+        flex:1,
+        justifyContent: 'center',
+        
+
+    },
+    button:{
+        
+        width:20,
+        color: '#1f62d5',
+        
+
+    
+      },
+});*/
+
+
+export default Prueba;
+
+
+
+
+
+
+

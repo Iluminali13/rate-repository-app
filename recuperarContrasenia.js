@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, Image, TextInput, Button, Alert } from 'react-n
 
 
 
-const recuperarContrasenia =() => {
+const recuperarContrasenia =({navigation}) => {
 
   return (
 

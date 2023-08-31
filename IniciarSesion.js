@@ -1,84 +1,159 @@
 import React from "react"
-import { Text, View, StyleSheet, Image, TextInput, Button, Alert } from 'react-native'
+import { Text, View, StyleSheet, Image, Button, Alert,Dimensions,TouchableOpacity, TextInput} from 'react-native'
+
+//maquetacion flex,
+//toma la dimension de la pantalla y lo dejamos en una variable
+var { height } = Dimensions.get('window');
+//creamos una variable con un valor en el que quieras dividir tu pantalla
+var box_count = 3;
+//dividimos en este caso por 3 y nos dara 3 espacios iguales, para luego editar a gusto
+//header, content, footer
+var box_height = height / box_count;
 
 
 const IniciarSesion =({navigation}) => {
+   
+    return(
+        <View style={styles.container}>
 
-    return (
-  
-      
-      <View>
-        <Text style={styles.title}> Inicio de Sesión</Text>
-        <Text>En caso que no tenga cuenta, puede presionar Crear Cuenta</Text>
-  
-        <Text style= {styles.text} >Cuil:</Text>
-        <TextInput style={styles.input} />
-  
-        <Text style={styles.text} >Clave:</Text>
-        <TextInput style={styles.input} />
-  
-        <Text style={styles.text1} 
+            <View style={[styles.box, styles.box1]}>
+                <Text style={styles.Text}>Inicio de Sesion</Text>
+
+                <Text style={styles.p}>En caso que no tenga cuenta, puede presionar Crear Cuenta</Text>
+                
+                </View> 
+
+
+            <View style={[styles.box, styles.box2]}>
+                
+                <Text style= {styles.textInput} >Cuil:</Text>
+                <TextInput style={styles.input} />
         
-        onPress={() =>{
-            navigation.navigate('recuperarContrasenia')
-        }}> Recuperar clave</Text>
-      
-        <Button style={styles.button}
-          title="ingresar"
-          onPress={() => navigation.navigate('Login')}
-        />
-        
-        <Text style={styles.text1} 
-        
-        onPress={() =>{
-            navigation.navigate('Registro')
-        }}> Crear cuenta</Text>
-        
-  
-      </View>
+                <Text style={styles.textInput} >Clave:</Text>
+                <TextInput style={styles.input} />
+
+                <Text style={styles.TextClave} 
+                
+                onPress={() =>{
+                    navigation.navigate('recuperarContrasenia')
+                }}> Recuperar clave</Text>
+
+                
+
+
+                <TouchableOpacity style={styles.button}
+                onPress={() => navigation.navigate('Login')}>
+                    <View>
+                        <Text style={styles.text_button}>Ingresar</Text>
+                    </View>
+
+                </TouchableOpacity>
+
+                <Text style={styles.TextCrearCuenta} 
+                
+                onPress={() =>{
+                    navigation.navigate('Registro')
+                }}> Crear Cuenta</Text>
+                
+                </View> 
+
+            <View style={[styles.box, styles.box3]}></View> 
+        </View>
     )
-  }
-  
-  
-  
-  const styles = StyleSheet.create({
-    text1: {
-      justifyContent:'center',
-      alignContent: 'center',
-      alignItems:'center',
-      margin: 15,
-      height: 20,
-      fontSize: 15,
+
+}
+
+
+
+const styles = StyleSheet.create({
+
+    input: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+        borderColor: '#1f62d5'
+      },
+    
+    container: {
+      flex: 1,
+      flexDirection: 'column'
+    },
+    box: {
+        flex:1,
+      height: box_height //set this one 
+    },
+    //header
+    box1: {
+        marginTop:30,
+      marginLeft:15,
+      
+    },
+    //content
+    box2: {
+        flex: 3,
+        margin:0,
+      
     },
     button:{
-      color: '#1f62d5',
-      margin: 20,
-      height: 10,
+        marginTop:120,
+        marginLeft:120,
+        marginRight:120,
+        margin:30,
+        backgroundColor:'#1f62d7',
+        padding:10,
+        
+        bottom:0,
+        
     },
-    text: {
-      
-      margin: 15,
-      height: 20,
-      fontSize: 15,
+
+    TextCrearCuenta:{
+        fontSize:17,
+       marginLeft:160,
+        color: 'black',
+
     },
-    title: {
-      margin: 50,
-      fontSize: 31,
-      height: 40,
-      color: 'black'
-  
-  
+    TextClave:{
+        fontSize:17,
+       marginLeft:10,
+        color: 'black',
+
     },
-    input: {
-      height: 40,
-      margin: 12,
-      borderWidth: 1,
-      padding: 10,
-      borderColor: '#1f62d5'
+    textInput:{
+        fontSize:20,
+       marginLeft:20,
+        color: 'black',
+
     },
-  });
-  
+    text_button:{
+        fontSize:20,
+       alignSelf: 'center',
+        color: 'white',
+
+
+    },
+    
+    //footer
+    box3: {
+        
+    },
+    Text:{
+        fontSize:25,
+
+    },
+    p:{
+        
+        fontSize:15,
+
+    },
+    
+  }); 
   export default IniciarSesion;
+
+
+
+
+
   /*const App = () => {
     return (
       <View style={styles.container}>
