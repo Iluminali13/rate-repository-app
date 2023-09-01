@@ -4,7 +4,8 @@ import {
   View,
   Dimensions,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  Modal,
 } from 'react-native';
 
 
@@ -15,43 +16,71 @@ var { height } = Dimensions.get('window');
 var box_count = 3;
 var box_height = height / box_count;
 
+
  const NuevoTurno =({navigation}) => {
     return (
         <View style={styles.container}>
             <View style={[styles.box, styles.box1]}>
                 <Text style={styles.titulo}> Nuevo Turno</Text>
 
+               <View style={{}}>
                 <Text style={styles.p}>¿Para quien es este Turno?</Text>
+                </View> 
             </View>
-                
+            
+                     
                  
             <View style={[styles.box, styles.box2]}>
 
-
-            <TouchableOpacity style={styles.button}
-                onPress={() => navigation.navigate('Login')}>
-                    <View>
-                        <Text style={styles.text_button}>Para mi</Text>
-                    </View>
-
-                </TouchableOpacity>
-
-            
+              <View style={{flexDirection:'row'}}>
                 <TouchableOpacity style={styles.button}
-                onPress={() => navigation.navigate('Login')}>
-                    <View>
-                        <Text style={styles.text_button}>Para otro</Text>
+                  onPress={() => navigation.navigate('Login')}>
+                      <View>
+                          <Text style={styles.text_button}>Para mi</Text>
+                      </View>
+
+                  </TouchableOpacity>
+
+              
+                  <TouchableOpacity style={styles.button}
+                  onPress={() => navigation.navigate('Login')}>
+                      <View>
+                          <Text style={styles.text_button}>Para otro</Text>
+                      </View>
+
+                  </TouchableOpacity>
+                
+              </View>
+              <View>
+                  <Text style={styles.p1}>Seleccioona una Especialidad:</Text>
+                </View>
+
+                  <Modal transparent={true}
+                  visible={true}>
+                    <View style={{backgroundColor:"#000000aa",flex:1}}>
+                      <View style={{backgroundColor:"#ffffff,", margin:50,borderRadius:10, flex:1}}>
+                        <Text style={styles.list}>Traumatologia:</Text>
+                        <Text style={styles.list}>neurologia?:</Text>
+                        <Text style={styles.list}>neurologia?:</Text>
+                      </View>
                     </View>
-
-                </TouchableOpacity>
-
-
-
+                    
+                  </Modal>
             </View>
 
 
 
             <View style={[styles.box, styles.box3]}>
+
+              <View style={{flexDirection: 'row'}}>
+              <TouchableOpacity style={styles.button}
+                  onPress={() => navigation.navigate('Login')}>
+                      <View>
+                          <Text style={styles.text_button}>Solicitar Turno</Text>
+                      </View>
+
+                  </TouchableOpacity>
+              </View>
                 
                 
             </View> 
@@ -64,6 +93,10 @@ var box_height = height / box_count;
 
 const styles = StyleSheet.create({
 //en este caso nos daran cuadrados iguales si queremos una "estructura" buena poner  box1: flex1 , box: 2 flex5 0 6 
+  list:{
+    fontSize:30,
+    margin: 50
+  },
   container: {
     flex: 1,
     flexDirection: 'column'
@@ -73,7 +106,7 @@ const styles = StyleSheet.create({
   },
   //header
   box1: {
-    flex:1,
+  flex:1,
     marginTop:30,
       marginLeft:145,
   },
@@ -82,29 +115,41 @@ const styles = StyleSheet.create({
 
   },
   p:{
-        
-    fontSize:15,
+    
+    marginTop:20,
+    fontSize:17,
+
+  },
+
+
+  p1:{
+    marginTop:20,
+    fontSize:17,
 
   },
 
 //content
   box2: {
     flex:3,
+    alignItems:'center',
+    
     
   },
 
   button:{
-    marginTop:120,
-    marginLeft:120,
-    marginRight:120,
-    margin:30,
+
+    marginTop:12,
+    marginLeft:10,
+    marginRight:10,
+    margin:10,
     backgroundColor:'#1f62d7',
-    padding:10,
+    padding:13,
     
     bottom:0,
     
 },
 text_button:{
+
     fontSize:20,
    alignSelf: 'center',
     color: 'white',
@@ -114,6 +159,8 @@ text_button:{
 
 
   box3: {
+    justifyContent: 'center',
+    alignItems: 'center'
     
   }
 });

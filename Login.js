@@ -13,7 +13,10 @@ const Login =({navigation}) => {
 
             <View style={[styles.box, styles.box1]}>
                 <Text style={styles.Text}> Turnos</Text>
-                </View> 
+                
+            </View> 
+
+         
 
 
             <View style={[styles.box, styles.box2]}>
@@ -34,9 +37,10 @@ const Login =({navigation}) => {
 
                 </TouchableOpacity>
                 
-                </View> 
+            </View> 
 
-            <View style={[styles.box, styles.box3]}></View> 
+            <View style={[styles.box, styles.box3]}>
+            </View> 
         </View>
     )
 
@@ -63,6 +67,7 @@ const styles = StyleSheet.create({
     },
     //content
     box2: {
+        flexDirection: 'column',
         margin:0,
       
     },
@@ -91,6 +96,10 @@ const styles = StyleSheet.create({
         fontSize:40,
 
     },
+    TextP:{
+        fontSize:17,
+        margin:10
+    }
     
   }); 
 
