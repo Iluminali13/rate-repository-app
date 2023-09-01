@@ -1,12 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import {
   StyleSheet,
   View,
   Dimensions,
   Text,
   TouchableOpacity,
-  Modal,
+  Image,
 } from 'react-native';
+
+import close from './assets/close.png'
+import Modal from './component/modal';
 
 
 /*tomamos el valor de la dimension mediante dimension, luego lo dividimos por 
@@ -17,7 +20,11 @@ var box_count = 3;
 var box_height = height / box_count;
 
 
+
+
  const NuevoTurno =({navigation}) => {
+
+  const[view, setView] = useState(false)
     return (
         <View style={styles.container}>
             <View style={[styles.box, styles.box1]}>
@@ -54,72 +61,27 @@ var box_height = height / box_count;
                 <View>
                   <Text style={styles.p1}>Seleccioona una Especialidad:</Text>
                 </View>
-                <TouchableOpacity style={styles.button}
-                  onPress={() => navigation.navigate('Login')}>
-                      <View>
-                          <Text style={styles.text_button}>seleccione Especialidad</Text>
-                      </View>
+                  <TouchableOpacity style={styles.button}
+                    onPress={() =>{
+                      setView(true);
+                    }}>
+                        <View>
+                            <Text style={styles.text_button}>seleccione Especialidad</Text>
+                        </View>
 
                   </TouchableOpacity>
 
-
-                  <Modal 
-                    //animacion al abrir y cerrar en este caso desde arriba hacia abajo
-                      animationType="slide"
-                      // llamado para cerrar el popup
-                      onDismiss={() => console.log('close')}
-                      //llamado para abrir el popup
-                      onShow={() => console.log('show')}
-                      transparent
-                      //cuando se va a mostrar
-                      visible={true}
-                  >
-                        <View 
-                          style={{
-                            flex:1,
-                            backgroundColor: 'rgba(1,1,1, 0.5)',
-                            justifyContent:'center',
-                            alignItems:'center'
-                            }}>
-                          
-                            <View
-                              style={{
-                                height:'80%',
-                                width: '90%',
-                                backgroundColor:'#fff',
-                              }}
-                          
-                            >
-                                <View
-                                  style={{
-                                    height:45,
-                                    width: '100%',
-                                    flexDirection:'row',
-                                    alignItems:'flex-end',
-                                    justifyContent:'center',
-                                    backgroundColor:'black',
-                                    paddingHorizontal:10,
-                                  }}
-                              
-                                >
-                                  <TouchableOpacity style={{}}
-                                    onPress={() => navigation.navigate('Login')}>
-                                        <View>
-                                            <Text style={styles.text_button}>seleccione Especialidad</Text>
-                                        </View>
-
-                                    </TouchableOpacity>
-
-
-                                
-                                </View>
-
-
-                            </View>
-                        </View>
+                    <Modal
+                      visible={view}
+                      onClose={() => setView(false)}
                     
-                    
-                  </Modal>
+                    >
+                      <View style={{ width:30, height:30, backgroundColor:'red'}}>
+
+                      </View>
+                      
+                    </Modal>
+                  
             </View>
 
 
@@ -147,6 +109,7 @@ var box_height = height / box_count;
 
 const styles = StyleSheet.create({
 //en este caso nos daran cuadrados iguales si queremos una "estructura" buena poner  box1: flex1 , box: 2 flex5 0 6 
+
   list:{
     fontSize:30,
     margin: 50

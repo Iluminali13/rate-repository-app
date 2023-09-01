@@ -10,7 +10,6 @@ import recuperarContrasenia from "./recuperarContrasenia";
 import NuevoTurno from "./NuevoTurno";
 
 
-
 const Stack = createNativeStackNavigator();
 
 const App =() => {
