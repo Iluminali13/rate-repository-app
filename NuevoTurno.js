@@ -51,19 +51,73 @@ var box_height = height / box_count;
                   </TouchableOpacity>
                 
               </View>
-              <View>
+                <View>
                   <Text style={styles.p1}>Seleccioona una Especialidad:</Text>
                 </View>
-
-                  <Modal transparent={true}
-                  visible={true}>
-                    <View style={{backgroundColor:"#000000aa",flex:1}}>
-                      <View style={{backgroundColor:"#ffffff,", margin:50,borderRadius:10, flex:1}}>
-                        <Text style={styles.list}>Traumatologia:</Text>
-                        <Text style={styles.list}>neurologia?:</Text>
-                        <Text style={styles.list}>neurologia?:</Text>
+                <TouchableOpacity style={styles.button}
+                  onPress={() => navigation.navigate('Login')}>
+                      <View>
+                          <Text style={styles.text_button}>seleccione Especialidad</Text>
                       </View>
-                    </View>
+
+                  </TouchableOpacity>
+
+
+                  <Modal 
+                    //animacion al abrir y cerrar en este caso desde arriba hacia abajo
+                      animationType="slide"
+                      // llamado para cerrar el popup
+                      onDismiss={() => console.log('close')}
+                      //llamado para abrir el popup
+                      onShow={() => console.log('show')}
+                      transparent
+                      //cuando se va a mostrar
+                      visible={true}
+                  >
+                        <View 
+                          style={{
+                            flex:1,
+                            backgroundColor: 'rgba(1,1,1, 0.5)',
+                            justifyContent:'center',
+                            alignItems:'center'
+                            }}>
+                          
+                            <View
+                              style={{
+                                height:'80%',
+                                width: '90%',
+                                backgroundColor:'#fff',
+                              }}
+                          
+                            >
+                                <View
+                                  style={{
+                                    height:45,
+                                    width: '100%',
+                                    flexDirection:'row',
+                                    alignItems:'flex-end',
+                                    justifyContent:'center',
+                                    backgroundColor:'black',
+                                    paddingHorizontal:10,
+                                  }}
+                              
+                                >
+                                  <TouchableOpacity style={{}}
+                                    onPress={() => navigation.navigate('Login')}>
+                                        <View>
+                                            <Text style={styles.text_button}>seleccione Especialidad</Text>
+                                        </View>
+
+                                    </TouchableOpacity>
+
+
+                                
+                                </View>
+
+
+                            </View>
+                        </View>
+                    
                     
                   </Modal>
             </View>
