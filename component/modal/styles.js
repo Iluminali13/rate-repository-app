@@ -1,8 +1,8 @@
 import {StyleSheet} from 'react-native';
 
 
-export const stylesa = StyleSheet.create({
-    container:{
+export const styles = StyleSheet.create({
+    container1:{
         flex:1,
         backgroundColor: 'rgba(1,1,1, 0.5)',
         justifyContent:'center',

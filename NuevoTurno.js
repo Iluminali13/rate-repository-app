@@ -6,6 +6,7 @@ import {
   Text,
   TouchableOpacity,
   Image,
+  ScrollView,
 } from 'react-native';
 
 import close from './assets/close.png'
@@ -58,29 +59,45 @@ var box_height = height / box_count;
                   </TouchableOpacity>
                 
               </View>
-                <View>
-                  <Text style={styles.p1}>Seleccioona una Especialidad:</Text>
-                </View>
-                  <TouchableOpacity style={styles.button}
-                    onPress={() =>{
-                      setView(true);
-                    }}>
-                        <View>
-                            <Text style={styles.text_button}>seleccione Especialidad</Text>
-                        </View>
+                  <View>
+                    <Text style={styles.p1}>Especialidad*</Text>
+                  </View>
+                    <TouchableOpacity style={styles.button1}
+                      onPress={() =>{
+                        setView(true);
+                      }}>
+                          <View>
+                              <Text style={styles.text_button1}>seleccione Especialidad</Text>
+                          </View>
 
-                  </TouchableOpacity>
+                    </TouchableOpacity>
 
-                    <Modal
-                      visible={view}
-                      onClose={() => setView(false)}
-                    
-                    >
-                      <View style={{ width:30, height:30, backgroundColor:'red'}}>
-
-                      </View>
+                      <Modal
+                        visible={view}
+                        onClose={() => setView(false)}
                       
-                    </Modal>
+                      > 
+                          <View style={styles.container }>
+                            <ScrollView>
+                              <Text style={styles.list}>traumatologia</Text>
+                              <Text style={styles.list}>traumatologia</Text>
+                              <Text style={styles.list}>traumatologia</Text>
+                              <Text style={styles.list}>traumatologia</Text>
+                              <Text style={styles.list}>traumatologia</Text>
+                              <Text style={styles.list}>traumatologia</Text>
+                              <Text style={styles.list}>traumatologia</Text>
+                              <Text style={styles.list}>traumatologia</Text>
+                              <Text style={styles.list}>traumatologia</Text>
+                              <Text style={styles.list}>traumatologia</Text>
+                              <Text style={styles.list}>traumatologia</Text>
+                              <Text style={styles.list}>traumatologia</Text>
+                              <Text style={styles.list}>traumatologia</Text>
+                              <Text style={styles.list}>traumatologia</Text>
+                              <Text style={styles.list}>traumatologia</Text>
+                              <Text style={styles.list}>traumatologiatraumatologi</Text>                         
+                            </ScrollView>
+                          </View>
+                      </Modal>
                   
             </View>
 
@@ -90,7 +107,7 @@ var box_height = height / box_count;
 
               <View style={{flexDirection: 'row'}}>
               <TouchableOpacity style={styles.button}
-                  onPress={() => navigation.navigate('Login')}>
+                  onPress={() => navigation.navigate('Prueba')}>
                       <View>
                           <Text style={styles.text_button}>Solicitar Turno</Text>
                       </View>
@@ -109,10 +126,23 @@ var box_height = height / box_count;
 
 const styles = StyleSheet.create({
 //en este caso nos daran cuadrados iguales si queremos una "estructura" buena poner  box1: flex1 , box: 2 flex5 0 6 
+button1:{
 
+  marginTop:12,
+  marginLeft:10,
+  marginRight:10,
+  margin:10,
+  backgroundColor:'#d3d3d3',
+  padding:13,
+  
+  bottom:0,
+  
+},
   list:{
     fontSize:30,
-    margin: 50
+    margin: 10,
+    backgroundColor: "#d3d3d3",
+    borderRadius: 2,
   },
   container: {
     flex: 1,
@@ -170,6 +200,14 @@ text_button:{
     fontSize:20,
    alignSelf: 'center',
     color: 'white',
+
+
+},
+text_button1:{
+
+  fontSize:20,
+ alignSelf: 'center',
+  color: 'black',
 
 
 },

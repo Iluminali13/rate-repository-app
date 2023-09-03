@@ -19,7 +19,7 @@ function ModalCustom ({ onDismiss = () => null, onShow = () => null, visible, ch
                       //cuando se va a mostrar
                       visible={visible}
             >
-                        <View style={styles.container}>
+                        <View style={styles.container1}>
                             <View style={styles.subcontainer}>
                                 <View style={styles.headercontainer}
                               
