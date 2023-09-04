@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  Button,
 } from 'react-native';
 
 import close from './assets/close.png'
@@ -107,7 +108,7 @@ var box_height = height / box_count;
 
               <View style={{flexDirection: 'row'}}>
               <TouchableOpacity style={styles.button}
-                  onPress={() => navigation.navigate('Prueba')}>
+                  onPress={() => navigation.navigate('Especialidadess')}>
                       <View>
                           <Text style={styles.text_button}>Solicitar Turno</Text>
                       </View>

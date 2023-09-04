@@ -28,4 +28,14 @@ export const styles = StyleSheet.create({
           height:30,
           tintColor: '#000'
     },
+    container2: {
+        flex: 1,
+        flexDirection: 'column'
+      },
+      list1:{
+        fontSize:30,
+        margin: 10,
+        backgroundColor: "#d3d3d3",
+        borderRadius: 2,
+      },
 });

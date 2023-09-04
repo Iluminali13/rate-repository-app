@@ -1,32 +1,55 @@
-/*import React, { useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import prueba1 from './prueba1';
+import React, { useState } from 'react';
+import { View, Text, TextInput, Modal, TouchableOpacity, FlatList, Button} from 'react-native';
 
-const Pantalla = () => {
+const Especialidades = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [especialidadSeleccionada, setEspecialidadSeleccionada] = useState(null);
+  const [selectedEspecialidad, setSelectedEspecialidad] = useState(null);
+  const [inputValue, setInputValue] = useState('');
+  const especialidades = ['Especialidad 1', 'Especialidad 2', 'Especialidad 3'];
 
-  const handleEspecialidadSeleccionada = (especialidad) => {
+  const openModal = () => {
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
     setModalVisible(false);
-    setEspecialidadSeleccionada(especialidad);
+  };
+
+  const selectEspecialidad = (especialidad) => {
+    setSelectedEspecialidad(especialidad);
+    setInputValue(especialidad);
+    closeModal();
   };
 
   return (
-    <View style={{ flex: 1 }}>
-      <TouchableOpacity onPress={() => setModalVisible(true)}>
-        <Text>Seleccionar especialidad</Text>
-      </TouchableOpacity>
-      <Especialidades visible={modalVisible} onClose={handleEspecialidadSeleccionada} />
-      {
-        especialidadSeleccionada && (
-          <View>
-            <Text>Especialidad seleccionada: {especialidadSeleccionada.nombre}</Text>
-          </View>
-        )
-      }
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Especialidad seleccionada: {selectedEspecialidad}</Text>
+      <TextInput
+        placeholder="Selecciona una especialidad"
+        value={inputValue}
+        onFocus={openModal}
+      />
+      <Modal
+        visible={modalVisible}
+        animationType="slide"
+        transparent={false}
+      >
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>Selecciona una especialidad:</Text>
+          <FlatList
+            data={especialidades}
+            renderItem={({ item }) => (
+              <TouchableOpacity onPress={() => selectEspecialidad(item)}>
+                <Text>{item}</Text>
+              </TouchableOpacity>
+            )}
+            keyExtractor={(item) => item}
+          />
+          <Button title="Cancelar" onPress={closeModal} />
+        </View>
+      </Modal>
     </View>
   );
 };
 
-export default Pantalla;
-*/
+export default Especialidades;
