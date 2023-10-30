@@ -8,6 +8,8 @@ import {
   Image,
   ScrollView,
   Button,
+  TextInput,
+  FlatList,
 } from 'react-native';
 
 import close from './assets/close.png'
@@ -26,24 +28,52 @@ var box_height = height / box_count;
 
  const NuevoTurno =({navigation}) => {
 
+
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedSpecialty, setSelectedSpecialty] = useState('');
+
+  const specialties = [
+    'Especialidad 1',
+    'Especialidad 2',
+    'Especialidad 3',
+    'Especialidad 4',
+    'Especialidad 5',
+    'Especialidad 1',
+    'Especialidad 2',
+    'Especialidad 3',
+    'Especialidad 4',
+    'Especialidad 5',
+    'Especialidad 1',
+    'Especialidad 2',
+    'Especialidad 3',
+    'Especialidad 4',
+    'Especialidad 5',
+    // Agrega más especialidades según tu necesidad.
+  ];
+
+  const selectSpecialty = (item) => {
+    setSelectedSpecialty(item);
+    setModalVisible(false);
+  };
+
   const[view, setView] = useState(false)
     return (
         <View style={styles.container}>
             <View style={[styles.box, styles.box1]}>
                 <Text style={styles.titulo}> Nuevo Turno</Text>
 
-               <View style={{}}>
+               <View style={styles.separacion1}>
                 <Text style={styles.p}>¿Para quien es este Turno?</Text>
                 </View> 
             </View>
             
                      
                  
-            <View style={[styles.box, styles.box2]}>
-
-              <View style={{flexDirection:'row'}}>
+            <View style={[styles.box, styles.box2]}>            
+            
+            <View style={{flexDirection:'row'}}>
                 <TouchableOpacity style={styles.button}
-                  onPress={() => navigation.navigate('Login')}>
+                  onPress={() => navigation.navigate('')}>
                       <View>
                           <Text style={styles.text_button}>Para mi</Text>
                       </View>
@@ -52,7 +82,7 @@ var box_height = height / box_count;
 
               
                   <TouchableOpacity style={styles.button}
-                  onPress={() => navigation.navigate('Login')}>
+                  onPress={() => navigation.navigate('NuevoTurnoSegundaPersona')}>
                       <View>
                           <Text style={styles.text_button}>Para otro</Text>
                       </View>
@@ -60,61 +90,72 @@ var box_height = height / box_count;
                   </TouchableOpacity>
                 
               </View>
-                  <View>
-                    <Text style={styles.p1}>Especialidad*</Text>
+              
+                  <View style={styles.separacion}>
+                    <Text style={styles.p1}>Seleccione su especialidad</Text>
                   </View>
-                    <TouchableOpacity style={styles.button1}
-                      onPress={() =>{
-                        setView(true);
-                      }}>
-                          <View>
-                              <Text style={styles.text_button1}>seleccione Especialidad</Text>
-                          </View>
+                      <TouchableOpacity
+                        onPress={() => setModalVisible(true)}
+                        style={{ marginTop:30,borderWidth: 1, padding: 10, width: 200, marginBottom: 10 }}
+                        >
+                        <TextInput
+                          placeholder="Seleccionar Especialidad"
+                          editable={false} // El TextInput no es editable
+                          value={selectedSpecialty}
+                        />
+                      </TouchableOpacity>
 
-                    </TouchableOpacity>
+               
+                   
 
-                      <Modal
-                        visible={view}
-                        onClose={() => setView(false)}
+                    <View >
                       
-                      > 
-                          <View style={styles.container }>
-                            <ScrollView>
-                              <Text style={styles.list}>traumatologia</Text>
-                              <Text style={styles.list}>traumatologia</Text>
-                              <Text style={styles.list}>traumatologia</Text>
-                              <Text style={styles.list}>traumatologia</Text>
-                              <Text style={styles.list}>traumatologia</Text>
-                              <Text style={styles.list}>traumatologia</Text>
-                              <Text style={styles.list}>traumatologia</Text>
-                              <Text style={styles.list}>traumatologia</Text>
-                              <Text style={styles.list}>traumatologia</Text>
-                              <Text style={styles.list}>traumatologia</Text>
-                              <Text style={styles.list}>traumatologia</Text>
-                              <Text style={styles.list}>traumatologia</Text>
-                              <Text style={styles.list}>traumatologia</Text>
-                              <Text style={styles.list}>traumatologia</Text>
-                              <Text style={styles.list}>traumatologia</Text>
-                              <Text style={styles.list}>traumatologiatraumatologi</Text>                         
-                            </ScrollView>
-                          </View>
+
+                      <Modal visible={modalVisible} animationType="slide">
+                          <View style={styles.headercontainer}>
+                          <Text style={styles.text_Header}>Selecciona una especialidad:</Text>
+                            <TouchableOpacity 
+                                onPress={() => setModalVisible(false)}
+                                      ><Image
+                                      source={close}
+                                      style={styles.btnClose}/>
+                            </TouchableOpacity>
+                            </View>
+                        <View style={styles.container}>
+                          
+                          
+                          
+                          <FlatList style={styles.container}
+                            data={specialties}
+                            keyExtractor={(item) => item}
+                            renderItem={({ item }) => (
+                              <TouchableOpacity onPress={() => selectSpecialty(item)}>
+                                <Text style={styles.list}>{item}</Text>
+                              </TouchableOpacity>
+                            )}
+                          />
+                          
+                                            
+                          
+                        </View>
                       </Modal>
+                    </View>
                   
             </View>
 
-
+          
 
             <View style={[styles.box, styles.box3]}>
 
-              <View style={{flexDirection: 'row'}}>
-              <TouchableOpacity style={styles.button}
-                  onPress={() => navigation.navigate('Especialidadess')}>
+            <TouchableOpacity style={styles.button}
+                  onPress={() => navigation.navigate('EsperarConfirmacion')}>
+                    
+                    
                       <View>
-                          <Text style={styles.text_button}>Solicitar Turno</Text>
+                          <Text style={styles.text_button}>Solicitar turnos</Text>
                       </View>
 
                   </TouchableOpacity>
-              </View>
                 
                 
             </View> 
@@ -127,6 +168,37 @@ var box_height = height / box_count;
 
 const styles = StyleSheet.create({
 //en este caso nos daran cuadrados iguales si queremos una "estructura" buena poner  box1: flex1 , box: 2 flex5 0 6 
+text_Header:{
+  marginRight:112,
+  fontSize:18,
+
+},
+
+separacion:{
+  marginTop:30
+  
+},
+separacion1:{
+  marginTop:30,
+  marginRight:60,
+  
+},
+
+headercontainer:{
+  height:45,
+  width: '100%',
+  flexDirection:'row',
+  justifyContent:'flex-end',
+  alignItems:'center',
+  paddingHorizontal:10,
+},
+btnClose: {
+  
+  
+  width:30,
+  height:30,
+  tintColor: '#000'
+},
 button1:{
 
   marginTop:12,

@@ -14,7 +14,7 @@ const Registro =({navigation}) => {
             <View style={[styles.box, styles.box1]}>
                 <Text style={styles.Text}>Inicio de Sesion</Text>
 
-                <Text style={styles.p}>En caso que no tenga cuenta, puede presionar Crear Cuenta</Text>
+                <Text style={styles.p}>En caso de tener cuenta, puede presionar iniciarSesion</Text>
                 
                 </View> 
 
@@ -24,7 +24,7 @@ const Registro =({navigation}) => {
                 <Text style= {styles.textInput} >Cuil:<Text style={styles.textprueba}> (obligatorio)</Text></Text>
                 <TextInput style={styles.input} />
         
-                <Text style={styles.textInput} >Corre Electronico: <Text style={styles.textprueba}> (obligatorio)</Text></Text>
+                <Text style={styles.textInput} >Correo Electronico: <Text style={styles.textprueba}> (obligatorio)</Text></Text>
                 <TextInput style={styles.input} />
 
                 <Text style={styles.textInput} >Telefono movil: <Text style={styles.textprueba}> (obligatorio)</Text></Text>
@@ -43,7 +43,7 @@ const Registro =({navigation}) => {
                 
 
                 <TouchableOpacity style={styles.button}
-                onPress={() => navigation.navigate('Login')}>
+                onPress={() => navigation.navigate('iniciarSesion')}>
                     <View>
                         <Text style={styles.text_button}>Registrarte</Text>
                     </View>

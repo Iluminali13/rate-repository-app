@@ -1,5 +1,5 @@
 import React from "react"
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import IniciarSesion from "./IniciarSesion";
 import Registro from "./Registro";
 import Login from "./Login";
@@ -9,6 +9,13 @@ import Prueba from "./Prueba";
 import recuperarContrasenia from "./recuperarContrasenia";
 import NuevoTurno from "./NuevoTurno";
 import Especialidadess from "./Especialidadess"
+import Header from "./component/Header";
+import close from './assets/close.png'
+import Hospital from './assets/Hospital.png'
+import NuevoTurnoSegundaPersona from "./NuevoTurnoSegundaPersona";
+import EsperarConfirmacion from './EsperarConfirmacion';
+import SeleccionEstado from './SeleccionEstado';
+
 
 
 
@@ -20,7 +27,18 @@ const App =() => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator 
+      
+      screenOptions={{
+        
+        headerTitle: (props) => (
+          <Image source={Hospital}  />
+        ),
+        headerStyle:{
+          backgroundColor:'#1F62D7'
+        }
+      }}
+    >
         <Stack.Screen 
         name="iniciarSesion" 
         component={IniciarSesion} 
@@ -49,6 +67,28 @@ const App =() => {
         <Stack.Screen 
         name="Especialidadess" 
         component={Especialidadess} />
+
+        <Stack.Screen 
+        name="Header" 
+        component={Header} />
+
+        <Stack.Screen 
+        name="NuevoTurnoSegundaPersona" 
+        component={NuevoTurnoSegundaPersona} />
+
+
+        <Stack.Screen 
+        name="EsperarConfirmacion" 
+        component={EsperarConfirmacion} />
+
+
+        <Stack.Screen 
+        name="SeleccionEstado" 
+        component={SeleccionEstado} />
+
+        
+
+
 
         
       </Stack.Navigator>

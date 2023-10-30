@@ -30,7 +30,7 @@ const Login =({navigation}) => {
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.button}
-                onPress={() => navigation.navigate('Registro')}>
+                onPress={() => navigation.navigate('SeleccionEstado')}>
                     <View>
                         <Text style={styles.text_button}>Mis Turnos</Text>
                     </View>

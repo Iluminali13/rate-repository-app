@@ -1,53 +1,54 @@
 import React from "react"
 import { Text, View, StyleSheet, Image, Button, Alert,Dimensions,TouchableOpacity, TextInput} from 'react-native'
 
-//maquetacion flex,
-//toma la dimension de la pantalla y lo dejamos en una variable
 var { height } = Dimensions.get('window');
-//creamos una variable con un valor en el que quieras dividir tu pantalla
 var box_count = 3;
-//dividimos en este caso por 3 y nos dara 3 espacios iguales, para luego editar a gusto
-//header, content, footer
 var box_height = height / box_count;
 
 
-const recuperarContrasenia =({navigation}) => {
+const NuevoTurnoSegundaPersona =({navigation}) => {
    
     return(
         <View style={styles.container}>
 
             <View style={[styles.box, styles.box1]}>
-                <Text style={styles.Text}>Recuperacion de clave</Text>
+                <Text style={styles.Text}>Nuevo Turno Para Otro</Text>
 
-                <Text style={styles.p}>En caso de que tenga cuenta, puede presionar Iniciar sesion</Text>
+                <Text style={styles.p}>Completá los datos de la persona que tomará el turno.</Text>
                 
                 </View> 
 
 
             <View style={[styles.box, styles.box2]}>
                 
-                <Text style= {styles.textInput} >Cuil:</Text>
+                <Text style= {styles.textInput} >Nombre:<Text style={styles.textprueba}> (obligatorio)</Text></Text>
                 <TextInput style={styles.input} />
         
-                
+                <Text style={styles.textInput} >Apellido: <Text style={styles.textprueba}> (obligatorio)</Text></Text>
+                <TextInput style={styles.input} />
+
+                <Text style={styles.textInput} >DNI: <Text style={styles.textprueba}> (obligatorio)</Text></Text>
+                <TextInput style={styles.input} />
+
+                <Text style={styles.textInput} >Correo Electronico:<Text style={styles.textprueba}> (obligatorio)</Text></Text>
+                <TextInput style={styles.input} />
+
+                <Text style={styles.textInput} >Telefono Movil:<Text style={styles.textprueba}> (obligatorio)</Text></Text>
+                <TextInput style={styles.input} />
+
+                <Text style={styles.textInput} >Obra Socal:<Text style={styles.textprueba}> (obligatorio)</Text></Text>
+                <TextInput style={styles.input} />
+
 
                 
-                
-
 
                 <TouchableOpacity style={styles.button}
-                onPress={() => Alert.alert('Se te envio un mail para recuperar la contraseña')}>
+                onPress={() => navigation.navigate('EsperarConfirmacion')}>
                     <View>
-                        <Text style={styles.text_button}>Enviar</Text>
+                        <Text style={styles.text_button}>Solicitar Turno</Text>
                     </View>
 
                 </TouchableOpacity>
-
-                <Text style={styles.TextCrearCuenta} 
-                
-                onPress={() =>{
-                    navigation.navigate('iniciarSesion')
-                }}> Iniciar Sesion</Text>
                 
                 </View> 
 
@@ -60,7 +61,11 @@ const recuperarContrasenia =({navigation}) => {
 
 
 const styles = StyleSheet.create({
+    textprueba:{
+        fontSize:15,
+        color:'red'
 
+    },
     input: {
         height: 40,
         margin: 12,
@@ -90,7 +95,7 @@ const styles = StyleSheet.create({
       
     },
     button:{
-        marginTop:120,
+        marginTop:20,
         marginLeft:120,
         marginRight:120,
         margin:30,
@@ -114,8 +119,8 @@ const styles = StyleSheet.create({
 
     },
     textInput:{
-        fontSize:20,
-       marginLeft:20,
+        fontSize:15,
+       marginLeft:10,
         color: 'black',
 
     },
@@ -140,6 +145,6 @@ const styles = StyleSheet.create({
         fontSize:15,
 
     },
-    
   }); 
-  export default recuperarContrasenia;
+
+export default NuevoTurnoSegundaPersona;
